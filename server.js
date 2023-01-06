@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const cors = require('cors')
 
 const gcenter = require("./module/gcenter");
+const setCron = require("./module/cron")
 
 const app = express();
 
@@ -20,4 +21,6 @@ app.get("/", function (req, res) {
 
 app.listen(3030, () => {
   console.log("running port 3030");
+
+  setCron()
 });
