@@ -33,7 +33,7 @@ router.get("/", async (req, res) => {
   }
 
   const decodedURL = decodeURIComponent(url);
-  console.log({ decodedURL });
+
   const html = await proxy(decodedURL).catch((error) => {
     console.log({ error });
   });
