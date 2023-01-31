@@ -5,3 +5,4 @@ data
 newrelic_agent.log
 secrets.txt
 tmp/
+.env

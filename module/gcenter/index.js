@@ -11,7 +11,7 @@ router.post("/", (req, res) => {
     return;
   }
 
-  res.sendStatus(500);
+  res.sendStatus(400);
 });
 
 module.exports = router;

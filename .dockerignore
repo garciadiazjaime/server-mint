@@ -5,3 +5,4 @@ npm-debug.log
 data
 newrelic_agent.log
 secrets.txt
+.env
