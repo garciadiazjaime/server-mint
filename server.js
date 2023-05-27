@@ -6,9 +6,7 @@ require("dotenv").config();
 
 const gcenter = require("./module/gcenter");
 const proxy = require("./module/proxy");
-
-// todo: enable when news UI gets ready
-// const setCron = require("./module/cron");
+const setCron = require("./module/cron");
 
 const app = express();
 
@@ -27,5 +25,5 @@ app.get("/", function (req, res) {
 app.listen(3030, () => {
   console.log("running port 3030");
 
-  // setCron();
+  setCron();
 });

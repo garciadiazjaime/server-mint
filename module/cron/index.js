@@ -2,27 +2,13 @@ const fetch = require("node-fetch");
 
 const { CronJob } = require("cron");
 
-const setNewsCron = () => {
+const setInstagramCron = () => {
   new CronJob(
-    "0 0 */2 * * *",
+    "* * * * *",
     function () {
-      console.log("hitting news - list", new Date());
-      fetch(
-        "https://news.mintitmedia.com/.netlify/functions/aristegui-noticias?type=list"
-      );
-    },
-    null,
-    true,
-    "America/Los_Angeles"
-  );
-
-  new CronJob(
-    "0 */2 * * * *",
-    function () {
-      console.log("hitting news - article", new Date());
-      fetch(
-        "https://news.mintitmedia.com/.netlify/functions/aristegui-noticias?type=article"
-      );
+      const url = "https://api.luptico.com/.netlify/functions/process-image";
+      console.log("ping: ", url);
+      fetch(url);
     },
     null,
     true,
@@ -31,8 +17,13 @@ const setNewsCron = () => {
 };
 
 const setCron = () => {
-  console.log("setting cron", new Date());
-  setNewsCron();
+  if (!process.env.ENABLE_CRON) {
+    console.log("cron not-setup");
+    return;
+  }
+
+  setInstagramCron();
+  console.log("cron setup");
 };
 
 module.exports = setCron;
