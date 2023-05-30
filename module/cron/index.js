@@ -4,7 +4,7 @@ const { CronJob } = require("cron");
 
 const setInstagramCron = () => {
   new CronJob(
-    "*/5 * * * *",
+    "*/7 * * * *",
     function () {
       const url = "https://api.luptico.com/.netlify/functions/process-image";
       console.log("ping: ", url);
