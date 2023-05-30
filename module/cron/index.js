@@ -14,6 +14,18 @@ const setInstagramCron = () => {
     true,
     "America/Los_Angeles"
   );
+
+  new CronJob(
+    "1 */2 * * *",
+    function () {
+      const url = "https://api.luptico.com/.netlify/functions/process-post";
+      console.log("ping: ", url);
+      fetch(url);
+    },
+    null,
+    true,
+    "America/Los_Angeles"
+  );
 };
 
 const setCron = () => {
