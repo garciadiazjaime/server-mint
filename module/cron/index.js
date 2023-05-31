@@ -8,8 +8,9 @@ const loggerInfo = async (...args) => {
 
 const setInstagramCron = () => {
   new CronJob(
-    "*/7 * * * *",
+    "*/10 * * * *",
     function () {
+      // lambda to add image
       const url = "https://api.luptico.com/.netlify/functions/process-image";
       loggerInfo("ping: ", url);
       fetch(url);
@@ -20,8 +21,9 @@ const setInstagramCron = () => {
   );
 
   new CronJob(
-    "1 */2 * * *",
+    "1 */4 * * *",
     function () {
+      // lambda to read ig_recent_posts
       const url = "https://api.luptico.com/.netlify/functions/process-post";
       loggerInfo("ping: ", url);
       fetch(url);
@@ -32,8 +34,9 @@ const setInstagramCron = () => {
   );
 
   new CronJob(
-    "*/10 * * * *",
+    "*/15 * * * *",
     function () {
+      // lambda to classify image
       const url = "https://api.luptico.com/.netlify/functions/classify-image";
       loggerInfo("ping: ", url);
       fetch(url);
