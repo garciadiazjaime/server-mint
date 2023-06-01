@@ -32,19 +32,6 @@ const setInstagramCron = () => {
     true,
     "America/Los_Angeles"
   );
-
-  new CronJob(
-    "*/15 * * * *",
-    function () {
-      // lambda to classify image
-      const url = "https://api.luptico.com/.netlify/functions/classify-image";
-      loggerInfo("ping: ", url);
-      fetch(url);
-    },
-    null,
-    true,
-    "America/Los_Angeles"
-  );
 };
 
 const setCron = () => {
