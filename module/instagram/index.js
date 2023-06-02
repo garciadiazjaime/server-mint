@@ -4,7 +4,7 @@ const fs = require("fs");
 
 router.post("/", (req, res) => {
   const payload = req.body;
-
+  fs.writeFileSync(`./public/posts.json`, JSON.stringify(payload));
   if (
     Array.isArray(payload?.data?.recent?.sections) &&
     payload.data.recent.sections.length
