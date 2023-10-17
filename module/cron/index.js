@@ -40,7 +40,8 @@ const setCron = () => {
     return;
   }
 
-  setInstagramCron();
+  const flag = false
+  flag && setInstagramCron();
   loggerInfo("cron setup");
 };
 
